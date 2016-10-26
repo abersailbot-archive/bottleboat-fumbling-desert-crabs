@@ -14,23 +14,19 @@ void loop() {
 }
 
 int getCompassHeading(){
-  byte x, y, z;
+  int x;
   double heading;
   
   Wire.beginTransmission(ADDRESS);
   Wire.write(A);
   Wire.endTransmission();
 
-  Wire.requestFrom(ADDRESS, 6);
+  Wire.requestFrom(ADDRESS, 2);
   
-  while(Wire.available() < 6);
+  while(Wire.available() < 2);
   x = Wire.read()<<8; //X msb
   x |= Wire.read(); //X lsb
-  z = Wire.read()<<8; //Z msb
-  z |= Wire.read(); //Z lsb
-  y = Wire.read()<<8; //Y msb
-  y |= Wire.read(); //Y lsb
 
-  heading = atan2(x, y);
-  return heading*57.29582;
+  heading = x/10;
+  return heading;
 }
