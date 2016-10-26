@@ -1,5 +1,5 @@
 #include <Wire.h>
-#define ADDRESS 0x1E
+#define ADDRESS 0x42
 
 
 void setup() {
@@ -18,7 +18,7 @@ int getCompassHeading(){
   double heading;
   
   Wire.beginTransmission(ADDRESS);
-  Wire.write(0x03);
+  Wire.write(A);
   Wire.endTransmission();
 
   Wire.requestFrom(ADDRESS, 6);
