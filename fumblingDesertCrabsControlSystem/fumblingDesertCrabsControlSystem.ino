@@ -10,7 +10,7 @@ void setup() {
 }
 
 void loop() {
-  int x = getCompassHeading();
+  double x = getCompassHeading();
   Serial.println(x);
 }
 
