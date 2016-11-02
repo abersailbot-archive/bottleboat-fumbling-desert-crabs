@@ -30,3 +30,10 @@ int getCompassHeading(){
   heading = x/10;
   return heading;
 }
+
+int angleDifference(double a1, double a2){
+  double ang\le;
+  angle = 180 - abs(abs(a1 - a2) - 180);
+  return angle;
+}
+
