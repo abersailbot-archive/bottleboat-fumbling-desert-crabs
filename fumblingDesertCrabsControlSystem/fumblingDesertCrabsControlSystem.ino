@@ -1,5 +1,5 @@
 #include <Wire.h>
-#define ADDRESS 0x42
+#define ADDRESS 0x21
 
 
 void setup() {
@@ -10,7 +10,7 @@ void setup() {
 
 void loop() {
   int x = getCompassHeading();
-  Serial.print(x);
+  Serial.println(x);
 }
 
 double getCompassHeading(){
