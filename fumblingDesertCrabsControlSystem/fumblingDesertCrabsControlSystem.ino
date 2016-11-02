@@ -2,6 +2,7 @@
 #include <Servo.h> 
 #define ADDRESS 0x21
 #define SERVO_MID 95
+#define WANTED 0
 
 void setup() {
   Serial.begin(9600);
@@ -12,6 +13,9 @@ void setup() {
 void loop() {
   double x = getCompassHeading();
   Serial.println(x);
+  double diff = angleDifference(x, WANTED);
+  double servoAng = setServo(diff);
+  setRudder(servoAng);
 }
 
 double getCompassHeading(){
