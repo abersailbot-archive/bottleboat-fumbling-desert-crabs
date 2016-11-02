@@ -18,7 +18,7 @@ double getCompassHeading(){
   double heading;
   
   Wire.beginTransmission(ADDRESS);
-  Wire.write(ADDRESS);
+  Wire.write('A');
   Wire.endTransmission();
 
   Wire.requestFrom(ADDRESS, 2);
