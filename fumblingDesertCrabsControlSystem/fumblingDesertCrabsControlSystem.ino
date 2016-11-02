@@ -13,7 +13,7 @@ void loop() {
   Serial.print(x);
 }
 
-int getCompassHeading(){
+double getCompassHeading(){
   int x;
   double heading;
   
