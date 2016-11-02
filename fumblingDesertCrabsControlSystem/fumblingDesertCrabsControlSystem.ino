@@ -47,3 +47,18 @@ void setRudder(double rudderPos){
   }
 }
 
+double setServo(double angleDifference){
+  static double pGain = 0.2;
+  static double iGain = 0.2;
+  static double integral;
+  if (angleDifference < 10){
+    integral += angleDifference;
+  } else {
+    integral = 0;
+  }
+  double p = angleDifference * pGain;
+  double i = integral * iGain;
+  double angToSet = p + i;
+  return angToSet;
+}
+
