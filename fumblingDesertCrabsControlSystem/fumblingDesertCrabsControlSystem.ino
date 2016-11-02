@@ -31,7 +31,7 @@ int getCompassHeading(){
   return heading;
 }
 
-int angleDifference(double a1, double a2){
+double angleDifference(double a1, double a2){
   double angle;
   angle = 180 - abs(abs(a1 - a2) - 180);
   return angle;
