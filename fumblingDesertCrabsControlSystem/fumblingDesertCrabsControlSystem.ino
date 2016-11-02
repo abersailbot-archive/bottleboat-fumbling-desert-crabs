@@ -4,10 +4,12 @@
 #define SERVO_MID 95
 #define WANTED 0
 
+Servo rudder_servo;
+
 void setup() {
   Serial.begin(9600);
   Wire.begin();
-  
+  rudder_servo.attach(2);
 }
 
 void loop() {
@@ -43,12 +45,14 @@ double angleDifference(double a1, double a2){
 }
 
 void setRudder(double rudderPos){
-  int servoAngle;
+  int servoAngle = 0;
   if (rudderPos>0){
     servoAngle = rudderPos+SERVO_MID;
   } else if (rudderPos<0){
       servoAngle=SERVO_MID-rudderPos;
   }
+
+  rudder_servo.write(servoAngle);
 }
 
 double setServo(double angleDifference){
