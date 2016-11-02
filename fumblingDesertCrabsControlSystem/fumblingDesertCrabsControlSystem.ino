@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include <Servo.h> 
 #define ADDRESS 0x21
-
+#define SERVO_MID 95
 
 void setup() {
   Serial.begin(9600);
@@ -36,5 +36,14 @@ double angleDifference(double a1, double a2){
   double angle;
   angle = 180 - abs(abs(a1 - a2) - 180);
   return angle;
+}
+
+void setRudder(double rudderPos){
+  int servoAngle;
+  if (rudderPos>0){
+    servoAngle = rudderPos+SERVO_MID;
+  } else if (rudderPos<0){
+      servoAngle=SERVO_MID-rudderPos;
+  }
 }
 
