@@ -1,4 +1,5 @@
 #include <Wire.h>
+#include <Servo.h> 
 #define ADDRESS 0x21
 
 
