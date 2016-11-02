@@ -59,7 +59,7 @@ double setServo(double angleDifference){
   static double pGain = 0.2;
   static double iGain = 0.2;
   static double integral;
-  if (angleDifference < 10){
+  if (angleDifference < 5){
     integral += angleDifference;
   } else {
     integral = 0;
