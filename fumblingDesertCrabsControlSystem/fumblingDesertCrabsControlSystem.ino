@@ -3,11 +3,14 @@
 #define ADDRESS 0x21
 #define SERVO_MID 95
 #define WANTED 0
+#define MOTOR 5
 
 Servo rudder_servo;
+int motor_speed = 130;
 
 void setup() {
   Serial.begin(9600);
+  delay(3000);
   Wire.begin();
   rudder_servo.attach(2);
 }
@@ -18,6 +21,7 @@ void loop() {
   double diff = angleDifference(x, WANTED);
   double servoAng = setServo(diff);
   setRudder(servoAng);
+  setMotor(motor_speed);
 }
 
 double getCompassHeading(){
@@ -70,3 +74,6 @@ double setServo(double angleDifference){
   return angToSet;
 }
 
+void setMotor(int pwm){
+  analogWrite(MOTOR, pwm);
+}
