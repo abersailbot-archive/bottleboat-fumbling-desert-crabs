@@ -42,9 +42,26 @@ double getCompassHeading(){
   return heading;
 }
 
-double angleDifference(double a1, double a2){
-  double angle;
-  angle = 180 - abs(abs(a1 - a2) - 180);
+double angleDifference(double current, double desired){
+  double abs_diff, diff, angle;
+  abs_diff = 180 - abs(abs(current - desired) - 180);
+  diff = current - desired;
+  if (abs_diff == 0) {
+    angle = 0;
+  } else if (abs_diff < 180) {
+    if (diff < 0) {
+      angle = abs_diff;
+    } else {
+      angle = abs_diff * -1;
+    }
+  } else if (abs_diff > 180) {
+    if (diff < 0) {
+      angle = abs_diff * -1;
+    } else {
+      angle = abs_diff;
+    }
+  }
+
   return angle;
 }
 
