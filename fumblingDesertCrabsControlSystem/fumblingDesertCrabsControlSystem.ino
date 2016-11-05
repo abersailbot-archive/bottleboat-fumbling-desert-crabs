@@ -71,7 +71,7 @@ void setRudder(double rudderPos){
   if (rudderPos>0){
     servoAngle = rudderPos+SERVO_MID;
   } else if (rudderPos<0){
-      servoAngle=SERVO_MID-rudderPos;
+      servoAngle=SERVO_MID+rudderPos;
   }
 
   rudder_servo.write(servoAngle);
