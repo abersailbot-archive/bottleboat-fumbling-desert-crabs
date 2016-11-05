@@ -43,18 +43,19 @@ double getCompassHeading(){
 }
 
 double angleDifference(double current, double desired){
-  double abs_diff, diff, angle;
+  double abs_diff, abs_deduction, diff, angle;
   abs_diff = 180 - abs(abs(current - desired) - 180);
+  abs_deduction = abs(current - desired);
   diff = current - desired;
   if (abs_diff == 0) {
     angle = 0;
-  } else if (abs_diff < 180) {
+  } else if (abs_deduction < 180) {
     if (diff < 0) {
       angle = abs_diff;
     } else {
       angle = abs_diff * -1;
     }
-  } else if (abs_diff > 180) {
+  } else if (abs_deduction > 180) {
     if (diff < 0) {
       angle = abs_diff * -1;
     } else {
