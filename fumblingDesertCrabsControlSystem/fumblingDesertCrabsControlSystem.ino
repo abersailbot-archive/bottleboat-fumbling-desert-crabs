@@ -72,6 +72,11 @@ void setRudder(double rudderPos){
   servoAngle = rudderPos+SERVO_MID;
   Serial.print("Setting Rudder To:");
   Serial.println(servoAngle);
+  if (servoAngle > 160) {
+    servoAngle = 160
+  } else if (servoAngle < 40) {
+    servoAngle = 160
+  }
   rudder_servo.write(servoAngle);
 }
 
