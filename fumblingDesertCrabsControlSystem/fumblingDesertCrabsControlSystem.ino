@@ -17,6 +17,7 @@ void setup() {
 
 void loop() {
   double x = getCompassHeading();
+  Serial.print("Compass:");
   Serial.println(x);
   double diff = angleDifference(x, WANTED);
   double servoAng = setServo(diff);
@@ -69,7 +70,8 @@ double angleDifference(double current, double desired){
 void setRudder(double rudderPos){
   int servoAngle = 0;
   servoAngle = rudderPos+SERVO_MID;
-
+  Serial.print("Setting Rudder To:");
+  Serial.println(servoAngle);
   rudder_servo.write(servoAngle);
 }
 
