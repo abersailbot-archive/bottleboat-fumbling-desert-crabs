@@ -68,11 +68,7 @@ double angleDifference(double current, double desired){
 
 void setRudder(double rudderPos){
   int servoAngle = 0;
-  if (rudderPos>0){
-    servoAngle = rudderPos+SERVO_MID;
-  } else if (rudderPos<0){
-      servoAngle=SERVO_MID+rudderPos;
-  }
+  servoAngle = rudderPos+SERVO_MID;
 
   rudder_servo.write(servoAngle);
 }
